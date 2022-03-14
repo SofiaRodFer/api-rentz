@@ -1,5 +1,6 @@
 import { Column, CreateDateColumn, Entity, PrimaryColumn } from "typeorm";
 import { v4 as uuidV4 } from "uuid";
+import "reflect-metadata";
 
 @Entity("Users")
 class User {

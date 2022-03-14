@@ -1,3 +1,5 @@
+import "reflect-metadata";
+
 import { ICreateUserDTO } from "../dtos/ICreateUserDTO";
 import { User } from "../entities/User";
 

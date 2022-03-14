@@ -1,3 +1,4 @@
+import "reflect-metadata";
 import { getRepository, Repository } from "typeorm";
 
 import { ICreateUserDTO } from "../../dtos/ICreateUserDTO";
