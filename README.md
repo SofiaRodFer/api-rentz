@@ -6,7 +6,7 @@ Deve ser possível cadastrar um novo carro.
 **Regras de negócio**
 Não deve ser possível cadastrar um carro com uma placa já existente.
 O carro deve ser cadastrado com disponibilidade por padrão.
-* O usuário responsável pelo cadastro de um novo carro deve ser um usuário administrador.
+O usuário responsável pelo cadastro de um novo carro deve ser um usuário administrador.
 
 
 # Listagem de carros
