@@ -36,7 +36,6 @@ O usuário responsável pelo cadastro de uma nova especificação deve ser um us
 
 **Requisitos Funcionais**
 Deve ser possível cadastrar a imagem do carro.
-Deve ser possível listar todos os carros.
 
 **Requisitos não funcionais**
 Utilizar o multer para upload dos arquivos.
