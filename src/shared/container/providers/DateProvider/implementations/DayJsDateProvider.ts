@@ -1,0 +1,25 @@
+import dayjs from "dayjs";
+import utc from "dayjs/plugin/utc";
+
+import { IDateProvider } from "../IDateProvider";
+
+dayjs.extend(utc);
+
+class DayJsDateProvider implements IDateProvider {
+    dateNow() {
+        return dayjs().toDate();
+    }
+
+    convertToUTC(date: Date): string {
+        return dayjs(date).utc().local().format();
+    }
+
+    compareInHoursWithToday(end_date: Date): number {
+        const end_date_utc = this.convertToUTC(end_date);
+        const start_date_utc = this.convertToUTC(this.dateNow());
+
+        return dayjs(end_date_utc).diff(start_date_utc, "hours");
+    }
+}
+
+export { DayJsDateProvider };
