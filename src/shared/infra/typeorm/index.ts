@@ -1,3 +1,18 @@
+import { Connection, createConnection, getConnectionOptions } from "typeorm";
+
+export default async (): Promise<Connection> => {
+    const defaultOptions = await getConnectionOptions();
+
+    return createConnection(
+        Object.assign(defaultOptions, {
+            database:
+                process.env.NODE_ENV === "test"
+                    ? "database_test"
+                    : defaultOptions.database,
+        })
+    );
+};
+
 // import { Connection, createConnection, getConnectionOptions } from "typeorm";
 
 // export default async (host = "database_ignite"): Promise<Connection> => {
@@ -16,24 +31,24 @@
 //     );
 // };
 
-import { Connection, createConnection, getConnectionOptions } from "typeorm";
+// import { Connection, createConnection, getConnectionOptions } from "typeorm";
 
-export default async (host = "database_ignite"): Promise<Connection> => {
-    const defaultOptions = await getConnectionOptions();
+// export default async (host = "database_ignite"): Promise<Connection> => {
+//     const defaultOptions = await getConnectionOptions();
 
-    if (process.env.NODE_ENV === "test") {
-        return createConnection(
-            Object.assign(defaultOptions, {
-                host: "localhost",
-                port: "5431",
-                database: "rentz",
-            })
-        );
-    }
+//     if (process.env.NODE_ENV === "test") {
+//         return createConnection(
+//             Object.assign(defaultOptions, {
+//                 host: "localhost",
+//                 port: "5431",
+//                 database: "rentz",
+//             })
+//         );
+//     }
 
-    return createConnection(
-        Object.assign(defaultOptions, {
-            host,
-        })
-    );
-};
+//     return createConnection(
+//         Object.assign(defaultOptions, {
+//             host,
+//         })
+//     );
+// };
