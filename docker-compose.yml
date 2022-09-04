@@ -14,6 +14,11 @@ services:
     volumes:
       - pgdata:/data/postgres
 
+  redis:
+    image: redis:alpine
+    ports:
+      - 6379:6379
+
   database_test:
     image: postgres
     container_name: database_test
@@ -27,21 +32,22 @@ services:
     volumes:
       - pgdata:/data/postgres
 
-  app:
-    build: .
-    container_name: rentz
-    restart: always
-    ports: 
-      - 3333:3333
-      - 9229:9229
-    volumes: 
-      - .:/usr/app
-    links: 
-      - database_ignite
-      - database_test
-    depends_on:
-      - database_ignite
-      - database_test
+
+#   app:
+#     build: .
+#     container_name: rentz
+#     restart: always
+#     ports: 
+#       - 3333:3333
+#       - 9229:9229
+#     volumes: 
+#       - .:/usr/app
+#     links: 
+#       - database_ignite
+#       - database_test
+#     depends_on:
+#       - database_ignite
+#       - database_test
 
 volumes:
   pgdata:
